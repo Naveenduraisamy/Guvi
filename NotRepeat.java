@@ -1,5 +1,5 @@
 import java.util.*;
-class Repeat
+class NotRepeat
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -11,11 +11,11 @@ class Repeat
 		{
 			al.add(s.nextInt());
 		}
-		Set<Integer> st=new TreeSet<Integer>(al);
+		Set<Integer> st=new LinkedHashSet<Integer>(al);
 		for(int b:st)
 		{
 			c=Collections.frequency(al,b);
-			if(c!=1)
+			if(c==1)
 			 System.out.print(b+" ");
 		}
 	}
