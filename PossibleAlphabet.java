@@ -1,31 +1,35 @@
-/* package whatever; // don't place package name! */
-
 import java.util.*;
-import java.lang.*;
-import java.io.*;
-
-/* Name of the class has to be "Main" only if the class is public. */
 class PossibleAlphabet
 {
-  public static void main (String[] args) throws java.lang.Exception
+   public static void main (String[] args)
   {
     Scanner s=new Scanner(System.in);
     int a=s.nextInt();
     String b=String.valueOf(a);
-    int d=1;
+    int d=1,e=0,f=0;
+    String x="",y="";
     for(int i=0;i<b.length()-1;i++)
     {
-      if((Character.getNumericValue(b.charAt(i))<3) && (Character.getNumericValue(b.charAt(i+1))<7)))
+      e=Character.getNumericValue(b.charAt(i));
+      f=Character.getNumericValue(b.charAt(i+1));
+      if(e<3 && f<7 && e!=0)
        d++;
     }
     for(int i=0;i<b.length()-1;i++)
     {
-    	if(i%2==0)
+    	if(i%4==0 && b.length()>3)
     	{
-    	 if((Character.getNumericValue(b.charAt(i)))<3 && (Character.getNumericValue(b.charAt(i+1)))<7))
+             x=x+Character.getNumericValue(b.charAt(i))+Character.getNumericValue(b.charAt(i+1));
+             y=y+Character.getNumericValue(b.charAt(i+2))+Character.getNumericValue(b.charAt(i+3));
+             e=Integer.parseInt(x);
+             f=Integer.parseInt(y);
+             if(x.charAt(0)=='0' || x.charAt(1)=='0')
+              e=0;
+    	 if(e<27 && f<27 && e!=0)
     	   d++;
     	}
+    	x="";y="";
     }
     System.out.println(d);
- }
+  }
 }
